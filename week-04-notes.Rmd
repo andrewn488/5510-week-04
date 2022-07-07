@@ -1,0 +1,140 @@
+---
+title: "Week-04-Notes"
+author: "Andrew Nalundasan"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Overview Video
+
+
+
+# Data Collection
+
++ Data is our essential tool as business analysts
++ Data COllection
+
+    + Non-technical collection
+        + Survey / Interviews
+    + Technical
+        + Data from software
+        + Sensor logs
+        + Automated reports
+        
++ Data files
+
+    + Structured
+        + CSV / Excel / Logs with key-value pairs
+    + Semi-structured
+        + XML
+        + JSON
+        + HTML
+    + Unstructured
+        + Logs
+        + Text
+        + Binary
+
++ Data Ingestion
+
+    + Often done with programming scripts
+    + Customized open-source software
+    + Purchased private software
+    + Push & Pull
+    + Publish & Subscribe
+    
++ ETL <- Extract / Transform / Load
+
+    + Extract <- through APIs, scripts, software
+    + Transform <- preprocess the data
+    + Load <- in storage
+    
++ Batch vs. real-time
+
+    + batch <- collected within time increments
+        + delay of receiving of data (not real-time)
+    + real-time <- occurs by extracting data and displaying it in real time
+        + expensive to run
+        
++ 5 V's
+
+    + Volume / Velocity / Variety / Veracity (meaningful and accurate, clean of noise) / Value
+    
++ Data Bodies of Water
+
+    + Data Puddle <- single-purpose data mart built for a single project or team
+    + Data Pond <- collection of data puddles. Not efficient method of data storage since it requires high level of IT participation
+    + Data Lake <- supports self-service (business users can find and user data sets they want without IT dept) and contains data even if not being currently used by a project
+        + can be accessed from business users, IT, end users, et al. 
+    + Data Ocean <- expands self-service model of data lake to all enterprise data
+    
+![](bodies_of_water.png)
+
++ Hadoop
+
+    + Original solution to managing data
+    + Apache Spark
+    + Databricks
+    + AWS
+    + Google Cloud Platform (GCP), Google Big Query
+    + MapR
+    
++ why do we care?
+
+    + often in smaller companies, it is up to the data analyst to act as a data engineer
+    + most big companies have separate functions between data engineer vs. data analyst
+    + important for the analyst to understand what they're handling
+
+# Data Exploration 
+
++ Data Types
+
+    + Structured <- labeled data, best for classification / supervised learning
+        + Dimensionality <- too many columns / features?
+        + Sparsity <- only presence counts (sparse / missing data) 
+        + Resolution <- patterns depend on the scale
+        + Distribution <- centrality and dispersion (understanding the data from a distributed perspective)
+        + Attributes <- characteristics / features
+            + Nominal <- categories, states
+              + Binary <- nominal with 2 states
+                + symmetric / asymmetric
+            + Numeric <_ quantitative
+              + Interval <- meaningful differences
+              + Ratio <- same as interval, but also 0.0 means null()
+            + Ordinal <- values have meaningful order
+    + Unstructured  <- unlabeled data, best for clustering / unsupervised learning
+    + Semi-structured data <- with labels but does not officially reside in tabular structure
+    
++ Statistical Descriptions
+
+    + Boxplot <- graphic display of 5-number summary
+    + Histogram <- x-axis are values, y-axis represents frequencies
+    + Scatter plot <- each pair of values is a pair of coords and plotted as points in the plane
+    
++ Quantile-Quantile (Q-Q) Plot
+
+    + Univariate distribution against the corresponding quantiles of another
+    + Allows a view into whether there is a shift in going from one distribution to another
+    + Similar to putting 2 histograms together to glean differences between the two
+    
++ Similarity <- numerical measure of how alike data objects are, often between [0, 1]
++ Dissimilarity <- numerical measure of how different data objects are, lower when more objects alike
+
++ Distance measures
+
+    + Manhattan <- number of bits that are different between two binary vectors
+    + Euclidean <- point to point
+
+# Data Preprocessing I
+
+
+
+# Data Preprocessing II
