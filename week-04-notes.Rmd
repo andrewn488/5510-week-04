@@ -135,6 +135,109 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Data Preprocessing I
 
++ Measures of data quality: 
 
+    + Must have all these characteristics to provide value: 
+    + Accuracy
+    + Completeness
+    + Consistency
+    +Timeliness
+    + Believability
+    + Interpretability
 
++ Data Cleaning <- fill in missing values, smooth noisy data, identify or remove outliers, and resolve inconsistencies
+
+    + Data in the real world is dirty: lots of incorrect data, faulty instruments, human error, etc.
+    + Incomplete <- lacking attribute values, lacking certain attributes of interest, or containing only aggregate data
+        + Occupation="" (missing data)
+    + Noisy <- containing noise, errors, or outliers
+        + Salary = "-10" (an error)
+    + Inconsistent <- containing discrepancies in codes or names
+        + Age = "42", Birthday = "03/07/2010"
+    + Intentional (disguised missing data)
+        + Jan. 1 as everyone's birthday?
+    + Handling missing data
+        + Ignore
+            + less work but could be invalid
+        + Fill in missing values manually
+            + gives control but time consuming
+        + Fill in missing values automatically with
+            + Global constant
+            + Attribute mean
+            + Attribute mean of all samples belonging to the same class
+        + Binning
+            + first sort data and partition into (equal-frequency) bins
+            + then one can smooth by bin means, bin median, or bin boundries
+        + Regression
+            + smooth by fitting into a regression function
+        + Clustering
+            + Detect and remove outliers
+        + Combined computer and human inspection
+            + detect suspicious values and check by human
+
++ Data integration <- integration of multiple databases, data cubes, or files
+
+    + Data Integration <- All about combining data from multiple sources into a coherent store
+    + Schema integration <- integrate metadata from different sources
+    + Entity identification problem
+        + Identify real world entities from multiple data sources (Bill Clinton = William Clinton)
+    + Detecting and resolving data value conflicts
+        + For the same real-world entity, attribute values from different sources are different
+        + Possible reasons: different representations, different scales (metric vs. imperial units)
+        + Redundant attributes may be able to be detected by correlation analysis or covariance analysis
+        + Correlation analysis: Chi-Square test - The larger the X**2 value, the more likely the variables are related
+        + Correlation Coefficient (Pearson's Coefficient)
+            + Higher <- stronger correlation
+            + Negative <- weaker correlation
+            
 # Data Preprocessing II
+
++ Data Reduction <- dimensionality reduction, numeriosity reduction, data compression
+    
+    + To reduce computation time on very large datasets
+    + Dimensionality reduction <- remove unimportant attributes
+        + Principal Components Analysis (PCA)
+            + Fine a projection that captures the largest amount of variation in data in "components"
+            + Original data are projected onto a much smaller space by removing the components with the smallest variance, resulting in dimensionality reduction. We find the eigenvectors of the covariance matrix, and these eigenvectors define the new space
+            + Find a projection that captures the largest amount of variation
+        + Feature subset selection, feature creation
+        + Curse of dimensionality
+            + Sparse data causes density and sitance between points to be less meaningful
+            + If we have more features than observations, we run the risk of massively overfitting our model
+            + Too many dimensions causes every observation in your dataset to appear equidistant from the others. If distances are approximately equal, no meaningful clusters can be formed
+    + Numerosity reduction aka "Data Reduction"
+        + Regression and Log-Linear Models
+        + Histograms, clustering, sampling
+        + Numerosity Reduction <- data replaced by smaller representative models. Can be parametric or non-parametric
+            + Parametric:
+                + Linear regression <- data modeled to fit a straight line; often uses the least-square method to fit the line
+                + Multiple regression <- allows a response variable Y to be modeled as a linear function of multidimensional feature vector
+            + Non-parametric Methods
+                + Histograms <- binning into different groups
+                + Clustering
+                + Sampling <- obtaining small sample to represent whole data set
+                + Simple random sampling <- equal prbability of selecting any particular item
+                + Stratified sampling <- partition the data set, and draw samples from each partition (proportionally - approximately the same percentage of the data), used in conjunction with skewed data
+                + Sampling without replacement
+                    + Once an object is selected, it is removed from the population. It cannot be sampled again
+                + Sampling with replacement
+                    + Selected object is not removed from the population, it may be sampled again, can get a lot of redundancy
+                
+
++ Data transformation and data discretization <- normalization, concept hierarchy generation
+
+    + Function that maps the entire set of values of a given attribute to a new set of replacement values that each old value can be identified with one of the new values
+    + Methods
+        + Smoothing <- removes noise from data
+        + Attribute / Feature construction <- new attributes constructed from the given ones
+        + Aggregation <- summarization, data cube construction
+        + Normalization <- scaled to fall within a smaller, specified range
+            + min-max normalization
+            + z-score normalization
+            + normalization by decimal scaling
+        + Discretization <- concept hierarchy climbing
+
+
+
+
+
